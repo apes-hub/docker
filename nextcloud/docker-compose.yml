@@ -1,0 +1,39 @@
+version: "3.6"
+
+services:
+
+  nextcloud:
+    image: nextcloud
+    restart: always
+    #expose:
+    #  - 80
+    volumes:
+      # Linux 环境下使用
+      # - /etc/localtime:/etc/localtime:ro
+      # - /etc/timezone:/etc/timezone:ro
+      - ./data:/var/www/html/data:rw
+      - ./config.php:/var/www/html/config/config.php:rw
+    #extra_hosts:
+     # - "nextcloud.lab.com:127.0.0.1"
+      #- "nextcloud-cn.lab.com:127.0.0.1"
+    #networks:
+    #  - traefik
+    ports:
+      - "8098:80"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.www-nextcloud.entrypoints=http"
+    # healthcheck:
+    #   test: ["CMD-SHELL", "curl -f localhost/status.php || exit 1"]
+    #   interval: 5s
+    #   retries: 12
+    logging:
+        driver: "json-file"
+        options:
+            max-size: "1m"
+
+
+
+#networks:
+#  traefik:
+#    external: true

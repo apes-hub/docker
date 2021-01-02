@@ -1,0 +1,14 @@
+version: '3'
+services:
+    mysql:
+        environment:
+            MYSQL_ROOT_PASSWORD: "rootroot"
+            MYSQL_USER: 'test'
+            MYSQL_PASS: 'rootroot'
+        image: "mysql:5.7"
+        restart: always
+        #volumes:
+         #   - "./data:/var/lib/mysql"
+          #  - "./conf/my.cnf:/etc/my.cnf"
+        ports:
+            - "3306:3306"

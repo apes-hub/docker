@@ -1,0 +1,10 @@
+version: '3'
+services:
+    kod:
+
+        image: "registry.cn-hangzhou.aliyuncs.com/l_third_party/kod:master"
+        restart: always
+        volumes:
+           - "./data:/var/www/html/data:rw"
+        ports:
+            - "8600:80"

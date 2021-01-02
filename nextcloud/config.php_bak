@@ -1,0 +1,32 @@
+<?php
+$CONFIG = array (
+  'htaccess.RewriteBase' => '/',
+  'memcache.local' => '\\OC\\Memcache\\APCu',
+  'apps_paths' => 
+  array (
+    0 => 
+    array (
+      'path' => '/var/www/html/apps',
+      'url' => '/apps',
+      'writable' => false,
+    ),
+    1 => 
+    array (
+      'path' => '/var/www/html/custom_apps',
+      'url' => '/custom_apps',
+      'writable' => true,
+    ),
+  ),
+  'instanceid' => 'oc12d1pw63hc',
+  'passwordsalt' => 'B9Wt09NV2wWOCGr+bFCOelMrQ1nmiJ',
+  'secret' => '6kHNmytBYJUPp3ee9L0NYBE+xnGtPTqlzAAUQ4sjkCNjg04c',
+  'trusted_domains' => 
+  array (
+	0 => '127.0.0.1',
+    1 => preg_match('/cli/i',php_sapi_name())?'127.0.0.1':$_SERVER['SERVER_NAME'],
+  ),
+  'config_is_read_only' => true,
+  'default_language' => 'en',
+  'datadirectory' => '/var/www/html/data',
+
+);
