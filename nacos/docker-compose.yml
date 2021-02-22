@@ -1,0 +1,41 @@
+version: "3"
+services:
+  nacos1:
+    hostname: nacos1
+    container_name: nacos1
+    image: nacos/nacos-server:1.4.1
+    volumes:
+      - ./cluster-logs/nacos1:/home/nacos/logs
+      - ./init.d/custom.properties:/home/nacos/init.d/custom.properties
+    ports:
+      - "8848:8848"
+      - "9555:9555"
+    env_file:
+      - ./env/nacos.env
+    restart: always
+    ## 使用内置mysql的时候开启
+#    depends_on:
+#      - mysql
+  nacos2:
+    hostname: nacos2
+    image: nacos/nacos-server:1.4.1
+    container_name: nacos2
+    volumes:
+      - ./cluster-logs/nacos2:/home/nacos/logs
+      - ./init.d/custom.properties:/home/nacos/init.d/custom.properties
+    ports:
+      - "8849:8848"
+    env_file:
+      - ./env/nacos.env
+    restart: always
+
+## 内置mysql
+#  mysql:
+#    container_name: mysql
+#    image: nacos/nacos-mysql:5.7
+#    env_file:
+#      - ../env/mysql.env
+#    volumes:
+#      - ./mysql:/var/lib/mysql
+#    ports:
+#      - "3306:3306"
