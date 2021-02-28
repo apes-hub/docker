@@ -16,18 +16,18 @@ services:
     ## 使用内置mysql的时候开启
 #    depends_on:
 #      - mysql
-  nacos2:
-    hostname: nacos2
-    image: nacos/nacos-server:1.4.1
-    container_name: nacos2
-    volumes:
-      - ./cluster-logs/nacos2:/home/nacos/logs
-      - ./init.d/custom.properties:/home/nacos/init.d/custom.properties
-    ports:
-      - "8849:8848"
-    env_file:
-      - ./env/nacos.env
-    restart: always
+#  nacos2:
+#    hostname: nacos2
+#    image: nacos/nacos-server:1.4.1
+#    container_name: nacos2
+#    volumes:
+#      - ./cluster-logs/nacos2:/home/nacos/logs
+#      - ./init.d/custom.properties:/home/nacos/init.d/custom.properties
+#    ports:
+#      - "8849:8848"
+#    env_file:
+#      - ./env/nacos.env
+#    restart: always
 
 ## 内置mysql
 #  mysql:
